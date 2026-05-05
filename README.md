@@ -5,7 +5,7 @@ This project demonstrates a professional 3-tier architecture (Presentation, Appl
 ## 🏗️ Architecture Overview
 The application is deployed using the following EC2 instances:
 
-![EC2 Infrastructure](./screenshot/EC2_Screenshot.png)
+![EC2 Infrastructure](./Screenshot/EC2_Screenshot.png)
 
 - **Server 1 (Nginx):** Public: `13.206.221.0` | Private: `10.0.9.114`
 - **Server 2 (Application):** Public: `13.233.44.99` | Private: `10.0.10.112`
@@ -14,14 +14,14 @@ The application is deployed using the following EC2 instances:
 ### 🔒 Security Group Configuration
 Ports 80 (HTTP), 5000 (API), and 5432 (PostgreSQL) were configured to allow secure communication between layers.
 
-![Security Groups](./screenshot/Security%20group.png)
+![Security Groups](./Screenshot/Security%20group.png)
 
 ---
 
 ## 🚀 Setup & Commands
 
 ### 1. Database Layer (PostgreSQL)
-![Database Server](./screenshot/Mahmud_Ostad_Batch11_database.png)
+![Database Server](./Screenshot/Mahmud_Ostad_Batch11_database.png)
 
 **Commands executed on Server 3:**
 ```bash
@@ -40,10 +40,10 @@ cat setup.sql | sudo -u postgres psql
 # Restart service
 sudo systemctl restart postgresql
 ```
-![Database Verification](./screenshot/DatabasSetup.png)
+![Database Verification](./Screenshot/DatabasSetup.png)
 
 ### 2. Application Layer (.NET 9.0 Web API)
-![Application Server](./screenshot/Mahmud_Ostad_Batch11_web.png)
+![Application Server](./Screenshot/Mahmud_Ostad_Batch11_web.png)
 
 **Commands executed on Server 2:**
 ```bash
@@ -60,10 +60,10 @@ cp -r mahmud_batch11_assignment3/Application/AppAPI/publish/* /var/www/appapi/
 sudo cp mahmud_batch11_assignment3/Deployment/appapi.service /etc/systemd/system/
 sudo systemctl daemon-reload && sudo systemctl enable --now appapi.service
 ```
-![API Service Status](./screenshot/WebHostInService.png)
+![API Service Status](./Screenshot/WebHostInService.png)
 
 ### 3. Presentation Layer (Nginx)
-![Nginx Server](./screenshot/Mahmud_Ostad_Batch11_nginx.png)
+![Nginx Server](./Screenshot/Mahmud_Ostad_Batch11_nginx.png)
 
 **Commands executed on Server 1:**
 ```bash
@@ -80,7 +80,7 @@ sudo cp mahmud_batch11_assignment3/Deployment/nginx.conf /etc/nginx/sites-availa
 sudo ln -sf /etc/nginx/sites-available/appapi /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl restart nginx
 ```
-![Nginx Config](./screenshot/NginxSetup.png)
+![Nginx Config](./Screenshot/NginxSetup.png)
 
 ---
 
@@ -106,7 +106,7 @@ location /api/ {
 
 The application is publicly accessible at: **[http://13.206.221.0](http://13.206.221.0)**
 
-![Final Result](./screenshot/WebPageAccessFromInternet.png)
+![Final Result](./Screenshot/WebPageAccessFromInternet.png)
 
 ---
 *Project developed as part of Ostad DevOps Batch 11 Assignment.*
