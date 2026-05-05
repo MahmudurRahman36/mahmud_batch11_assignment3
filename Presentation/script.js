@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api/info';
+const API_BASE_URL = '/api/info';
 
 async function fetchIPInfo() {
     const clientIpEl = document.getElementById('client-ip');

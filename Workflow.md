@@ -6,4 +6,10 @@
 - Initialized `Workflow.md` to track progress.
 
 ## Phase 2: Data Layer
-- Preparing `Database/setup.sql` for PostgreSQL setup.
+## Phase 3: Deployment Configuration
+- Configured EC2 instance IPs across all relevant files:
+  - **Nginx:** 13.232.177.25 (Public)
+  - **Application:** 10.0.7.96 (Private)
+  - **Database:** 10.0.13.128 (Private)
+- Updated `appsettings.json`, `nginx.conf`, and `DeploymentGuide.md` with the new networking details.
+- Switched frontend to use relative API paths for better proxy compatibility.

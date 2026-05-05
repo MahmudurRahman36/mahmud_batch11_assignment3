@@ -11,9 +11,9 @@ This guide explains how to deploy the IP Info Hub application across three separ
 
 ## Pre-deployment Checklist
 Before starting, ensure you have the IP addresses of all three servers:
-- **Server 1 IP:** `<NGINX_SERVER_IP>`
-- **Server 2 IP:** `<BACKEND_SERVER_IP>`
-- **Server 3 IP:** `<DB_SERVER_IP>`
+- **Server 1 (Nginx):** Public: `13.232.177.25`, Private: `10.0.13.37`
+- **Server 2 (Application):** Public: `52.66.192.32`, Private: `10.0.7.96`
+- **Server 3 (Database):** Public: `3.111.171.236`, Private: `10.0.13.128`
 
 Ensure ports are open in your firewalls:
 - **Server 1:** 80 (HTTP)
@@ -31,7 +31,7 @@ Ensure ports are open in your firewalls:
    ```
 4. **Important:** Edit `/etc/postgresql/16/main/pg_hba.conf` to allow Server 2 to connect:
    ```text
-   host    ip_info_db    app_user    <BACKEND_SERVER_IP>/32    md5
+   host    ip_info_db    app_user    10.0.7.96/32    md5
    ```
 5. Edit `/etc/postgresql/16/main/postgresql.conf` to listen on the server's IP:
    ```text
@@ -46,7 +46,7 @@ Ensure ports are open in your firewalls:
 2. Update `appsettings.json` with the **Server 3 IP**:
    ```json
    "ConnectionStrings": {
-     "DefaultConnection": "Host=<DB_SERVER_IP>;Username=app_user;Password=AppSecurePassword123;Database=ip_info_db"
+     "DefaultConnection": "Host=10.0.13.128;Username=app_user;Password=AppSecurePassword123;Database=ip_info_db"
    }
    ```
 3. Publish and transfer files to `/var/www/appapi`.
@@ -64,7 +64,7 @@ Ensure ports are open in your firewalls:
 2. Update `Deployment/nginx.conf` with the **Server 2 IP**:
    ```nginx
    location /api/ {
-       proxy_pass http://<BACKEND_SERVER_IP>:5000;
+       proxy_pass http://10.0.7.96:5000;
    }
    ```
 3. Transfer `Presentation` files to `/var/www/presentation`.
@@ -79,8 +79,8 @@ Ensure ports are open in your firewalls:
 ---
 
 ## 4. Final Verification
-1. Access the application via `http://<NGINX_SERVER_IP>`.
+1. Access the application via `http://13.232.177.25`.
 2. The UI should display:
    - **Client IP:** Your public IP.
-   - **Application IP:** `<BACKEND_SERVER_IP>`.
-   - **Database IP:** `<DB_SERVER_IP>`.
+   - **Application IP:** `10.0.7.96`.
+   - **Database IP:** `10.0.13.128`.
