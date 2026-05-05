@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Info Hub - 3-Tier Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>System Connectivity Dashboard</h1>
+            <p>Real-time status of your 3-tier architecture</p>
+        </header>
+        
+        <main class="grid">
+            <div class="card" id="client-card">
+                <div class="icon">👤</div>
+                <h3>Client IP</h3>
+                <div class="ip-value" id="client-ip">Loading...</div>
+                <p class="label">Your current access point</p>
+            </div>
+            
+            <div class="card" id="app-card">
+                <div class="icon">⚙️</div>
+                <h3>Application Server IP</h3>
+                <div class="ip-value" id="app-ip">Loading...</div>
+                <p class="label">Backend processing node</p>
+            </div>
+            
+            <div class="card" id="db-card">
+                <div class="icon">🗄️</div>
+                <h3>Database IP</h3>
+                <div class="ip-value" id="db-ip">Loading...</div>
+                <p class="label">Data persistence layer</p>
+            </div>
+        </main>
+        
+        <footer>
+            <button id="refresh-btn">Refresh Data</button>
+            <p>&copy; 2026 IP Info Hub. Managed Infrastructure.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[Unit]
+Description=.NET Web API App for IP Info Hub
+
+[Service]
+WorkingDirectory=/var/www/appapi
+ExecStart=/usr/bin/dotnet /var/www/appapi/AppAPI.dll --urls "http://0.0.0.0:5000"
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=dotnet-appapi
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
