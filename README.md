@@ -19,9 +19,9 @@ For a detailed walkthrough of deploying this project across three separate serve
 👉 **[Deployment Guide (3-Server Setup)](./Deployment/DeploymentGuide.md)**
 
 ### Quick Summary:
-1. **Database (Server 3 - 10.0.13.128):** Run `Database/setup.sql` and allow Server 2 IP (`10.0.7.96`).
-2. **Backend (Server 2 - 10.0.7.96):** Configure `appsettings.json` with Server 3 IP (`10.0.13.128`).
-3. **Nginx (Server 1 - 13.232.177.25):** Configure `nginx.conf` with Server 2 IP (`10.0.7.96`).
+1. **Database (Server 3 - 10.0.10.187):** Run `Database/setup.sql` and allow Server 2 IP (`10.0.10.112`).
+2. **Backend (Server 2 - 10.0.10.112):** Configure `appsettings.json` with Server 3 IP (`10.0.10.187`).
+3. **Nginx (Server 1 - 13.206.221.0):** Configure `nginx.conf` with Server 2 IP (`10.0.10.112`).
 
 ## Development Workflow
 The development process was documented in [Workflow.md](./Workflow.md).
