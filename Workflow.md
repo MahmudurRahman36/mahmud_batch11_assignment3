@@ -13,3 +13,4 @@
   - **Database:** 10.0.13.128 (Private)
 - Updated `appsettings.json`, `nginx.conf`, and `DeploymentGuide.md` with the new networking details.
 - Switched frontend to use relative API paths for better proxy compatibility.
+- **Database Layer Setup:** Successfully executed `setup.sql` on Server 3 (10.0.13.128). Verified that `ip_info_db` and `app_user` are created.

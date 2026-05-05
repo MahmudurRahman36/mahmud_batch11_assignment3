@@ -27,7 +27,7 @@ Ensure ports are open in your firewalls:
 2. Copy `Database/setup.sql` to the server.
 3. Execute the setup script:
    ```bash
-   sudo -u postgres psql -f setup.sql
+   cat setup.sql | sudo -u postgres psql
    ```
 4. **Important:** Edit `/etc/postgresql/16/main/pg_hba.conf` to allow Server 2 to connect:
    ```text
